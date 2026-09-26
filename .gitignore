@@ -216,3 +216,42 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# FreeFileSync configuration files
+*.ffs_gui
+*.ffs_batch
+*.ffs_real
+
+# FreeFileSync database files (created with "Database" comparison)
+*.ffs_db
+*.ffs_db-*
+
+# FreeFileSync log files
+*.log
+FreeFileSync*.log
+ffs_*.log
+
+# Temporary / lock files
+*.tmp
+*.temp
+~$*
+*.lock
+
+# Windows system files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+System Volume Information/
+RECYCLER/
+RECYCLED/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+*~
+.directory
