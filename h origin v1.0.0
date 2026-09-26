@@ -1,0 +1,76 @@
+[33mtag v1.0.0[m
+Tagger: natrajv <natrajv@yahoo.com>
+Date:   Sat Sep 26 17:12:28 2026 +0530
+
+Release version 1.0.0
+
+[33mcommit ac45fac1949bafb07c48019ecfbcf9adece8ff27[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;33mtag: [m[1;33mv1.0.0[m[33m)[m
+Author: natrajv <natrajv@yahoo.com>
+Date:   Sat Sep 26 17:11:52 2026 +0530
+
+    SN037-Nat-HR v1.0.0 release
+
+[1mdiff --git a/README.md b/README.md[m
+[1mindex 021e177..db7a88d 100644[m
+[1m--- a/README.md[m
+[1m+++ b/README.md[m
+[36m@@ -1,2 +1,20 @@[m
+[31m-# sn037-nat-hr[m
+[31m-Demo Python webapp for CRUD of HR database of pno, name, unit[m
+[32m+[m[32m# SN037-Nat-HR[m
+[32m+[m[32mDemo Python webapp for CRUD of HR database of pno, name, unit [Git](https://github.com/natrajv/sn037-nat-hr)[m
+[32m+[m
+[32m+[m
+[32m+[m[32m# Version History[m
+[32m+[m[32m## v1.0.0[m
+[32m+[m[32m* Release Date: 26 Sep 2026 (Tag: v1.0.0)[m
+[32m+[m[32m* Read source excel (hr.xlsx) and insert into target SQLite DB (hr.db)[m
+[32m+[m[32m* SQLite DB (hr.db) created automatically[m
+[32m+[m[32m* Key learings, key concepts[m
+[32m+[m[32m    + Libraries needed: pandas, sqlite3, openpyxl[m
+[32m+[m[32m    + Pandas Dataframe: df[m
+[32m+[m[32m    + `df = pd.read_excel(*Excel file*)`[m
+[32m+[m[32m    + `conn = sqlite3.connect(*SQLite DB file*)`[m
+[32m+[m[32m    + `conn.execute(""" CREATE TABLE <...> """)`[m
+[32m+[m[32m    + `records = list(df[["emp_no", "emp_name"]].itertuples(index=False, name=None))`[m
+[32m+[m[32m    + `conn.executemany("""INSERT INTO <...> """, records)`[m
+[32m+[m[32m    * `conn.commit(), conn.close`[m
+[41m+[m
+[41m+    [m
+[1mdiff --git a/demo-nat-hr-v1.0.0-20260926_1408 b/demo-nat-hr-v1.0.0-20260926_1710[m
+[1msimilarity index 100%[m
+[1mrename from demo-nat-hr-v1.0.0-20260926_1408[m
+[1mrename to demo-nat-hr-v1.0.0-20260926_1710[m
+[1mdiff --git a/demo-nat-hr.py b/demo-nat-hr.py[m
+[1mindex 7b50b40..b2c9b13 100644[m
+[1m--- a/demo-nat-hr.py[m
+[1m+++ b/demo-nat-hr.py[m
+[36m@@ -1,9 +1,24 @@[m
+ import pandas as pd[m
+ import sqlite3[m
+[31m-[m
+[32m+[m[32m# --------------------------------------------------[m
+[32m+[m[32m# Note: Ensure you have the required libraries installed:[m
+[32m+[m[32m# pip install pandas openpyxl (or)[m
+[32m+[m[32m# uv add pandas and openpyxl to your environment if not already installed.[m
+[32m+[m[32m# --Housekeeping[m
+[32m+[m[32m# Make sure to have hr.xlsx in the same directory as this script.[m
+[32m+[m[32m# Truncate the hr table in hr.db before running this script to avoid duplicate entries.[m
+[32m+[m[32m# PS> sqlite3 .\hr.db "delete from hr;"[m
+ # --------------------------------------------------[m
+ # Configuration[m
+ # --------------------------------------------------[m
+[32m+[m[32m# Sample data in hr.xlsx:[m
+[32m+[m[32m# | emp_no | emp_name |[m
+[32m+[m[32m# | -----: | -------- |[m
+[32m+[m[32m# |   1001 | Ravi     |[m
+[32m+[m[32m# |   1002 | Kumar    |[m
+[32m+[m[32m# |   1003 | Suresh   |[m
+[32m+[m[32m# --------------------------------------------------[m
+[32m+[m
+ SOURCE_EXCEL = "hr.xlsx"[m
+ TARGET_DB = "hr.db"[m
+ [m
+[1mdiff --git a/hr.db b/hr.db[m
+[1mindex 6232be6..87d5b89 100644[m
+Binary files a/hr.db and b/hr.db differ
